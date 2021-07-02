@@ -1,10 +1,12 @@
 import { MailerModule } from '@nestjs-modules/mailer';
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { CreateUserController } from './create-user/create-user.controller';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     BullModule.forRoot({
       redis: {
         host: 'localhost',
@@ -13,11 +15,11 @@ import { CreateUserController } from './create-user/create-user.controller';
     }),
     MailerModule.forRoot({
       transport: {
-        host: 'smtp.ethereal.email',
-        port: 587,
+        host: process.env.MAIL_HOST,
+        port: Number(process.env.MAIL_PORT),
         auth: {
-          user: 'fern.lesch@ethereal.email',
-          pass: '6MxdHanRF6UMubm82e',
+          user: process.env.MAIL_USER,
+          pass: process.env.MAIL_PASS,
         },
       },
     }),
