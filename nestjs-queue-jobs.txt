@@ -1,0 +1,28 @@
+//==================== QUEUE JOBS - NESTJS
+
+	-> Criar filas de execução para executar processos assíncronos com duração longa em background, para deixar o retorno da aplicação mais dinâmico.
+	
+		Ex de tarefa: Envio de e-mails para muitos destinatários, montagem de relatórios grandes.
+		
+	
+	
+	//======== Utilizando NestJS
+	
+	
+	-> Criar projeto com o comando padrão: nest new "nome-projeto";
+	
+	-> Deletar controller/service/teste default e criar uma nova controller, através do comando:
+	
+		- nest g controller "nomeController"
+		
+	
+	-> A aplicação fará envio de e-mails de forma assíncrona, através dos jobs;
+	
+		- para isso, será utilizado o serviço de envio de e-mail do próprio nestjs;
+		
+		- Os emails serão enviados para uma SMTP fake, no site: https://ethereal.email
+		
+	
+	-> A criação de jobs é simples utilizando o package Bull, utilizando o padrão de producer/consumer da queue/jobs;
+	
+	
