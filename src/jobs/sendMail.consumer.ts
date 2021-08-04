@@ -1,11 +1,5 @@
 import { MailerService } from '@nestjs-modules/mailer';
-import {
-  OnQueueActive,
-  OnQueueCompleted,
-  OnQueueProgress,
-  Process,
-  Processor,
-} from '@nestjs/bull';
+import { OnQueueActive, OnQueueCompleted, OnQueueProgress, Process, Processor } from '@nestjs/bull';
 import { Job } from 'bull';
 import { CreateUserDTO } from 'src/create-user/create-user-dto';
 import { SendMailConstants } from '../shared/send.mail.constants';

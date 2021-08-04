@@ -42,7 +42,7 @@ import { BullAdapter } from 'bull-board/bullAdapter';
 export class AppModule {
   constructor(
     @InjectQueue(SendMailConstants.SEND_MAIL_QUEUE)
-    private sendMailQueue: Queue,
+    private sendMailQueue: Queue
   ) {}
 
   configure(consumer: MiddlewareBuilder) {
